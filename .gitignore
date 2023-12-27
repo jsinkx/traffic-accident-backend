@@ -1,0 +1,8 @@
+# Weight files
+*.pkl
+
+# secret
+.env
+
+# cache
+__pycache__
