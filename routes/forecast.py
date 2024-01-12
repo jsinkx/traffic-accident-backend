@@ -17,10 +17,10 @@ def forecast_route():
             model_id = int(data['model_id']) or 0
             df = pd.DataFrame(data['options']) # Создание pandas DataFrame из приходящих данных
             
-            result = create_forecast_accident(model_id, df[forecast_features]) # Создание прогноза выбранной по id модели и выбранных по признакам данных  
+            result = jsonify(create_forecast_accident(model_id, df[forecast_features])) # Создание прогноза выбранной по id модели и выбранных по признакам данных  
         except:
-            result = { 'success': False, 'message': 'Что-то пошло не так!'  }
-        return jsonify(result)
+            result = jsonify({ 'success': False, 'message': 'Что-то пошло не так!'  }), 400
+        return result
     else:
         clean_models = list(map(info_model, models))
         
