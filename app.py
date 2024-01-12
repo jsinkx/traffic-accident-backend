@@ -7,7 +7,7 @@ def create_app():
     app = Flask(__name__)
     cors = CORS(app)
 
-    from routes.create_forecast import forecast_route_blueprint
+    from routes.forecast import forecast_route_blueprint
 
     app.register_blueprint(forecast_route_blueprint)
     

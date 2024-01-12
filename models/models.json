@@ -1,0 +1,26 @@
+[
+	{
+		"id": 0,
+		"name": "RandomForestClassifier",
+		"ru_name": "Случайный лес",
+		"file": "random_forest.pkl",
+		"path": "./models/",
+		"model": null
+	},
+	{
+		"id": 1,
+		"name": "RandomForestClassifierOLD",
+		"ru_name": "Случайный лес старый",
+		"file": "random_forest_old.pkl",
+		"path": "./models/",
+		"model": null
+	},
+	{
+		"id": 2,
+		"name": "RandomForestClassifierTPOT",
+		"ru_name": "Случайный лес TPOT",
+		"file": "random_forest_tpot.pkl",
+		"path": "./models/",
+		"model": null
+	}
+]

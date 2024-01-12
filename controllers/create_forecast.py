@@ -1,8 +1,12 @@
-import os
-import joblib
+from models.models import models
 
-MODEL_PATH = os.path.join('./ml-models', 'random_forest_model.pkl')
-model = joblib.load(MODEL_PATH)
-
-def create_forecast_accident(data): 
-    return { 'forecasted_values': model.predict(data).tolist() }
+def create_forecast_accident(model_id, data):
+    # Если модель не найдена, берется первая модель из всех
+    model = (list(filter(lambda v: v['id'] == model_id, models)) or models)[0]
+    
+    return {
+            'model_name': model['name'], 
+            'model_ru_name': model['ru_name'], 
+            'forecasted_value': int(model['model'].predict(data)),
+            'success': True 
+    }        
