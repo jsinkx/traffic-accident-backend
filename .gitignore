@@ -1,4 +1,4 @@
-# Weight files
+# models
 *.pkl
 
 # secret
@@ -6,3 +6,4 @@
 
 # cache
 __pycache__
+cache
