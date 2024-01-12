@@ -17,6 +17,6 @@ def create_forecast_accident(model_id, data):
                 'model_name': model['name'], 
                 'model_ru_name': model['ru_name'], 
                 'predicted_class': int(model['model'].predict(data)),
-                'predicted_probabilities': model['model'].predict_proba(data).tolist(), # [вероятность_класс_0, вероятность_класс_1]
+                'predicted_probabilities': model['model'].predict_proba(data).tolist()[0], # [вероятность_класс_0, вероятность_класс_1]
                 'success': True 
         }        

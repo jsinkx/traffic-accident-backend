@@ -17,8 +17,6 @@
 
 Получить модели можно в репозитории [traffic-accident-ml](https://github.com/jsinkx/traffic-accident-ml)
 
-
-
 ## Документация
 
 - #### Запрос
@@ -53,9 +51,10 @@
 
 ```json
 {
-	"forecasted_value": 0,
 	"model_name": "RandomForestClassifier",
 	"model_ru_name": "Случайный лес",
+	"predicted_class": 1,
+	"predicted_probabilities": [0.2690662494364746, 0.7309337505635257],
 	"success": true
 }
 ```
