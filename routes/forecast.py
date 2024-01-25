@@ -15,7 +15,7 @@ def forecast_route():
         
         try:
             model_id = int(data['model_id']) or 0
-            df = pd.DataFrame(data['options']) # Создание pandas DataFrame из приходящих данных
+            df = pd.DataFrame([data['options']]) # Создание pandas DataFrame из приходящих данных
             
             result = jsonify(create_forecast_accident(model_id, df[forecast_features])) # Создание прогноза выбранной по id модели и выбранных по признакам данных  
         except:

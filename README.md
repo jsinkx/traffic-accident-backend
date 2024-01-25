@@ -4,8 +4,8 @@
 
 ## Стек
 
-- Flask
-- joblib
+-  Flask
+-  joblib
 
 ## Конфигурация
 
@@ -19,7 +19,7 @@
 
 ## Документация
 
-- #### Запрос
+-  #### Запрос
 
 ```bash
     POST /forecast
@@ -30,20 +30,18 @@
 ```json
 {
 	"model_id": 0,
-	"options": [
-		{
-			"temperature": 1.9,
-			"atmospheric_pressure": 752.4,
-			"humidity": 96,
-			"wind_speed": 2,
-			"cloudiness": 1.0,
-			"hour": 12,
-			"season_autumn": 0,
-			"season_spring": 0,
-			"season_summer": 0,
-			"season_winter": 1
-		}
-	]
+	"options": {
+		"temperature": 1.9,
+		"atmospheric_pressure": 752.4,
+		"humidity": 96,
+		"wind_speed": 2,
+		"cloudiness": 1.0,
+		"hour": 12,
+		"season_autumn": 0,
+		"season_spring": 0,
+		"season_summer": 0,
+		"season_winter": 1
+	}
 }
 ```
 
@@ -68,7 +66,7 @@
 }
 ```
 
-- #### Запрос
+-  #### Запрос
 
 ```bash
     GET /forecast
