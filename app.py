@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 
-from config import SERVER_HOST, SERVER_PORT, IS_PROD
+from shared.config import SERVER_HOST, SERVER_PORT, IS_PROD
 
 def create_app():
     app = Flask(__name__)

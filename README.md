@@ -1,28 +1,31 @@
-# Серверное приложение прогнозирования ДТП на основе погоды
+<div align="center">
+
+# Traffic accident backend ML app
+
+Create traffic accident forecast wia weather conditions in Moscow at north
+
+</div>
 
 ---
 
-## Стек
+## Documentation
+
+[Simple markdown documentation](./documentation.md)
+
+## Stack
 
 -  Flask
 -  joblib
 
-## Конфигурация
+## Configuration
 
-Пример конфига находится в `.env.example`, но для использования нужно использовать `.env`
+An example of the config is in `.env.example`, but to use it you need to use `.env`
 
-Интеграция конфига из env в переменные python находится в `./config.py`
+The integration of the config from env into python variables is in `./shared/config.py `
 
-Перед использованием необходимо в `./models` загрузить `.pkl` обученных моделей и прописать их в `./models.json`.
+Before using it, it is necessary to load the `.pkl` of trained models in `./models` and register them in `./models.json`.
 
-Получить модели можно в репозитории [traffic-accident-ml](https://github.com/jsinkx/traffic-accident-ml)
-
-## Config app
-
-An example of the config is in `.env.example`, but to use it you need to create `.env`
-
-Integration of the config from `.env` into javascript variables and all constants are in
-`./src/shared/constants.ts`
+You can get models in the [traffic-accident-ml](https://github.com/jsinkx/traffic-accident-ml) repository or download from [Google Drive](https://drive.google.com/drive/folders/1tYOwK5FFDQ4p6IUQ2HQIEzmWDxz7muh3?usp=sharing)
 
 ## Production mode
 
@@ -46,79 +49,16 @@ Run build container
 docker run --name traffic-accident-backend-ml --restart=always -d -p 5000:5000 traffic-accident-backend-ml
 ```
 
-## Документация
+## Dev mode & installation
 
--  #### Запрос
+1. [`> Python 3.10`](https://www.python.org/)
+2. Install all libs from [`requirements.txt`](./requirements.txt)
 
-```bash
-    POST /forecast
+Install all dependencies
+
+```sh
+cd traffic-accident-backend-ml
+pip install --no-cache-dir -r requirements.txt
 ```
 
-Пример запроса
-
-```json
-{
-	"model_id": 0,
-	"options": {
-		"temperature": 1.9,
-		"atmospheric_pressure": 752.4,
-		"humidity": 96,
-		"wind_speed": 2,
-		"cloudiness": 1.0,
-		"hour": 12,
-		"season_autumn": 0,
-		"season_spring": 0,
-		"season_summer": 0,
-		"season_winter": 1
-	}
-}
-```
-
-Пример ответа
-
-```json
-{
-	"model_name": "RandomForestClassifier",
-	"model_ru_name": "Случайный лес",
-	"predicted_class": 1,
-	"predicted_probabilities": [0.2690662494364746, 0.7309337505635257],
-	"success": true
-}
-```
-
-Возможная ошибка
-
-```json
-{
-	"message": "Что-то пошло не так!",
-	"success": false
-}
-```
-
--  #### Запрос
-
-```bash
-    GET /forecast
-```
-
-Пример ответа
-
-```json
-[
-	{
-		"id": 0,
-		"name": "RandomForestClassifier",
-		"ru_name": "Случайный лес"
-	},
-	{
-		"id": 1,
-		"name": "RandomForestClassifierOLD",
-		"ru_name": "Случайный лес старый"
-	},
-	{
-		"id": 2,
-		"name": "RandomForestClassifierTPOT",
-		"ru_name": "Случайный лес TPOT"
-	}
-]
-```
+Run `python3 -m flask run --host=0.0.0.0`

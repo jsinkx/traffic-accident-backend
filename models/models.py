@@ -9,15 +9,15 @@ def load_models():
         file.close() 
 
         for model in models:
-                model_path = os.path.abspath(model['path'] + model['file']) # получение пути модели
-                model['model'] = joblib.load(model_path) # загрузка модели с сохранением в словарь
+                model_path = os.path.abspath(model['path'] + model['file']) # Getting the model path
+                model['model'] = joblib.load(model_path) # Loading a model and saving it to the dictionary
                 
-                print(f'Loaded model {model["name"]}')
+                print(f'Loaded model { model["name"] }')
         
         return models
    
 def info_model(model):
-        clean_model = {**model}
+        clean_model = { **model }
         
         del clean_model['file']
         del clean_model['path']

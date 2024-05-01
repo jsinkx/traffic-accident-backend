@@ -15,7 +15,7 @@ COPY --from=env_by_args /traffic-accident-backend-ml/.env .
 COPY *.env .env
 
 # Build final backend ml app
-FROM python:3.10.0 as runner
+FROM python:3.10-slim-buster as runner
 WORKDIR /traffic-accident-backend-ml
 COPY --from=env /traffic-accident-backend-ml/.env .env
 COPY . .
