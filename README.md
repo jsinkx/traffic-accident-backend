@@ -17,6 +17,35 @@
 
 Получить модели можно в репозитории [traffic-accident-ml](https://github.com/jsinkx/traffic-accident-ml)
 
+## Config app
+
+An example of the config is in `.env.example`, but to use it you need to create `.env`
+
+Integration of the config from `.env` into javascript variables and all constants are in
+`./src/shared/constants.ts`
+
+## Production mode
+
+### By docker
+
+Way without create `.env`
+
+```sh
+docker build -t traffic-accident-backend-ml --build-arg SERVER_HOST=<SERVER_HOST> --build-arg SERVER_PORT=<SERVER_PORT> --build-arg IS_PROD=<IS_PROD> .
+```
+
+<strong> Warning: don't forget to create `.env` and add pkl models </strong>
+
+```sh
+docker build -t traffic-accident-backend-ml .
+```
+
+Run build container
+
+```sh
+docker run --name traffic-accident-backend-ml --restart=always -d -p 5000:5000 traffic-accident-backend-ml
+```
+
 ## Документация
 
 -  #### Запрос
