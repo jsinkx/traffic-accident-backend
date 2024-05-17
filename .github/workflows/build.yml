@@ -33,8 +33,10 @@ jobs:
       steps:
          - name: Remove old docker container
            run: docker stop /traffic-accident-backend-ml && docker rm /traffic-accident-backend-ml
-         - name: Pull image and rename from docker hub
+         - if: always()
+           name: Pull image and rename from docker hub
            run: docker pull jsink/personal-account-backend:latest && docker image tag
               jsink/personal-account-backend:latest traffic-accident-backend-ml
-         - name: Run docker container
+         - if: always()
+           name: Run docker container
            run: docker run --name traffic-accident-backend-ml --restart=always -d -p ${{ secrets.PROD_RUNNING_PORT }}:5000 traffic-accident-backend-ml
