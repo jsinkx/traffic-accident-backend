@@ -7,6 +7,9 @@ jobs:
    build:
       runs-on: self-hosted
       steps:
+         - name: Getting models
+           run: wget https://storage.yandexcloud.net/traffic-accident-bucket/models.tar.gz && tar -xvf models.tar.gz
+         - run: mv ml-models/* models/
          - name: Set up QEMU
            uses: docker/setup-qemu-action@v2
          - name: Log in to Docker Hub
