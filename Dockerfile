@@ -17,6 +17,7 @@ COPY *.env .env
 # Build final backend ml app
 FROM python:3.10-slim-buster as runner
 WORKDIR /traffic-accident-backend-ml
+RUN apt-get update && apt-get install -y gcc 
 COPY --from=env /traffic-accident-backend-ml/.env .env
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
