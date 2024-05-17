@@ -39,4 +39,4 @@ jobs:
               jsink/personal-account-backend:latest traffic-accident-backend-ml
          - if: always()
            name: Run docker container
-           run: docker run --name traffic-accident-backend-ml --restart=always -d -p ${{ secrets.PROD_RUNNING_PORT }}:5000 traffic-accident-backend-ml
+           run: docker run --name traffic-accident-backend-ml --restart=always -d -p ${{ secrets.SERVER_PORT }}:5000 traffic-accident-backend-ml
